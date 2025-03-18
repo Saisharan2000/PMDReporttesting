@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMD Report Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #2d4a60;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .error {
+            background-color: #f8d7da;
+        }
+        .warning {
+            background-color: #fff3cd;
+        }
+        .info {
+            background-color: #d1ecf1;
+        }
+    </style>
+</head>
+<body>
+    <h1>PMD Report Example</h1>
+
+    <h2>Summary</h2>
+    <table>
+        <tr>
+            <th>Total Files</th>
+            <td>3</td>
+        </tr>
+        <tr>
+            <th>Total Violations</th>
+            <td>5</td>
+        </tr>
+    </table>
+
+    <h2>Violations</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>File</th>
+                <th>Line</th>
+                <th>Rule</th>
+                <th>Description</th>
+                <th>Priority</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="error">
+                <td>src/main/java/com/example/MyClass.java</td>
+                <td>25</td>
+                <td>EmptyCatchBlock</td>
+                <td>Empty catch block. At least log or handle the exception.</td>
+                <td>2</td>
+            </tr>
+            <tr class="warning">
+                <td>src/main/java/com/example/MyClass.java</td>
+                <td>30</td>
+                <td>UnnecessaryReturn</td>
+                <td>Unnecessary return statement in void method.</td>
+                <td>3</td>
+            </tr>
+            <tr class="info">
+                <td>src/main/java/com/example/AnotherClass.java</td>
+                <td>10</td>
+                <td>UnusedPrivateField</td>
+                <td>Private field is never used.</td>
+                <td>4</td>
+            </tr>
+            <tr class="warning">
+                <td>src/main/java/com/example/Utility.java</td>
+                <td>45</td>
+                <td>MethodArgumentCouldBeFinal</td>
+                <td>Method argument could be final.</td>
+                <td>3</td>
+            </tr>
+            <tr class="info">
+                <td>src/main/java/com/example/Utility.java</td>
+                <td>60</td>
+                <td>ToStringCalls</td>
+                <td>Consider overriding the `toString()` method for better logging.</td>
+                <td>4</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Details for Violations</h2>
+    <p><strong>EmptyCatchBlock:</strong> The empty catch block at line 25 in <code>MyClass.java</code> should either log the exception or handle it to avoid silent failures.</p>
+    <p><strong>UnnecessaryReturn:</strong> The return statement in the method at line 30 of <code>MyClass.java</code> is unnecessary as the method is void.</p>
+    <p><strong>UnusedPrivateField:</strong> The private field in <code>AnotherClass.java</code> at line 10 is not used anywhere in the class and should be removed to reduce code clutter.</p>
+    <p><strong>MethodArgumentCouldBeFinal:</strong> The argument in the method at line 45 of <code>Utility.java</code> could be declared as final to make the code more readable and maintainable.</p>
+    <p><strong>ToStringCalls:</strong> The method in <code>Utility.java</code> at line 60 could benefit from an overridden <code>toString()</code> method for better logging of its state.</p>
+</body>
+</html>
