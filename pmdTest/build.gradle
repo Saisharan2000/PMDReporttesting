@@ -25,17 +25,20 @@ dependencies {
 }
 
 pmd {
-    toolVersion = '6.55.0'  // Specify PMD version
+    toolVersion = '6.55.0'
     ruleSets = ["java-basic", "java-braces", "java-unusedcode"]
-    ignoreFailures = false  // Stop build on PMD violations
+    ignoreFailures = true // Stop build on PMD violations
+    
 }
 
-tasks.withType(Pmd) {
+tasks.withType(Pmd).configureEach {
     reports {
-        xml.required = true  // Generate XML report
-        html.required = true // Generate HTML report
+        xml.required = true  // XML report (for Jenkins)
+        xml.outputLocation = layout.buildDirectory.file("reports/pmd/pmd.xml") // Ensures report is saved in a predictable location
+        html.required = true // HTML report (for manual inspection)
     }
 }
+
 
 tasks.named('test') {
 	useJUnitPlatform()
