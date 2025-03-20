@@ -1,0 +1,42 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.3'
+	id 'io.spring.dependency-management' version '1.1.7'
+	id 'pmd'  // Enable PMD Plugin
+}
+
+group = 'com.jenkins.tests'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+pmd {
+    toolVersion = '6.55.0'  // Specify PMD version
+    ruleSets = ["java-basic", "java-braces", "java-unusedcode"]
+    ignoreFailures = false  // Stop build on PMD violations
+}
+
+tasks.withType(Pmd) {
+    reports {
+        xml.required = true  // Generate XML report
+        html.required = true // Generate HTML report
+    }
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
