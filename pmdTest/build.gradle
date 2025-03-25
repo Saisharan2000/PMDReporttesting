@@ -35,7 +35,7 @@ pmd {
 
 sonarqube {
     properties {
-        property "sonar.projectKey", "sonar project"
+        property "sonar.projectKey", "PMDPipelineProject"
         property "sonar.host.url", "http://localhost:9000"
         property "sonar.sourceEncoding", "UTF-8"
     }
