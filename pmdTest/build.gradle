@@ -38,6 +38,7 @@ sonarqube {
         property "sonar.projectKey", "PMDPipelineProject"
         property "sonar.host.url", "http://localhost:9000"
         property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.token", "squ_4f88bb140d6523dc9a0c81f14e78a3a260644791"
     }
 }
 
